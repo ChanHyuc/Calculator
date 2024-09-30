@@ -1,7 +1,3 @@
-protocol CalculateItem {
-    
-}
-
 struct CalculatorItemQueue<dataType: CalculateItem> {
 
     private(set) var enqueueStack: [dataType] = []
