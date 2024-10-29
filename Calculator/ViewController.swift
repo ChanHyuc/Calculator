@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Calculator
-//
-//  Created by ChanHyuc on 9/27/24.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -112,11 +105,21 @@ class ViewController: UIViewController {
                 inputTextField.text?.removeAll()
                 calculatorTextView.text.removeAll()
             } else if title == "CE" {
-                inputTextField.text?.removeLast()
+                if var text = inputTextField.text, !text.isEmpty {
+                    text.removeLast()
+                }
             } else if title == "+/-" {
+                if operatorTextField.text == "+" {
+                    operatorTextField.text = "-"
+                } else if operatorTextField.text == "-" {
+                    operatorTextField.text = "+"
+                }
                 
             } else if title == "+" || title == "-" || title == "*" || title == "/" {
-                operatorTextField.text?.append(title)
+                if let text = inputTextField.text, !text.isEmpty {
+                    operatorTextField.text?.append(title)
+                }
+                
             } else {
                 inputTextField.text?.append(title)
             }
